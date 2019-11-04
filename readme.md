@@ -21,8 +21,10 @@ Env variabler som må settes i dette repoet.
 travis encrypt DOCKER_USERNAME=<docker_username> --add  
 travis encrypt DOCKER_PASSWORD=<docker_password> --add  
 
-travis encrypt HEROKU_EMAIL=<heroku_email> --add   
-travis encrypt HEROKU_API_KEY=<heroku_api_key> --add    
+travis encrypt $(heroku auth:token) --add deploy.api_key
+eller
+travis encrypt <heroku_auth_token> -r <github_user>/<repo> --add deploy.api_key
+
 
 
 Jeg har hentet mye inspirasjon på hvordan jeg skriver applikasjonen, struktur på API osv. fra materiell fra undvervisningen i Enterprise programmering 2
